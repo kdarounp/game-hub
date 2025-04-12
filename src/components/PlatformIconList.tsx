@@ -38,3 +38,18 @@ const PlatformIconList = ({ platforms }: Props) => {
 };
 
 export default PlatformIconList;
+
+/**
+ What does { [key: string]: IconType } mean?
+
+It's saying:
+"This is an object where:
+    - every key is a string -> "[key: string]""
+    - every value is of type IconType -> ": IconType"
+
+
+
+Why use [key: string]?
+Because we don't know the keys in advance. The keys are dynamic and depend on the data we get from the API.
+We look up the keys using the brackets notation: iconMap[platform.slug].
+ */
