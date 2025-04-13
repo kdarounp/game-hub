@@ -25,6 +25,14 @@ const SearchInput = ({ onSearch }: Props) => {
           placeholder="Search games... "
           variant="filled"
           ref={ref}
+          sx={{
+            "::placeholder": {
+              fontStyle: "italic",
+              fontWeight: "bold",
+              color: "gray.500",
+              fontSize: "sm",
+            },
+          }}
         ></Input>
       </InputGroup>
     </form>
