@@ -1,19 +1,13 @@
-import { useQuery } from "@tanstack/react-query";
-import ApiClient from "../services/api-client";
-import { FetchResponse } from "./useData";
+import usePlatforms from "./usePlatforms";
 
-interface Platform {
-    id: number;
-    name: string;
-    slug: string;
-    }
-
-const apiClient = new ApiClient<Platform>("/platforms/lists/parents");
-
-const usePlatform = () => useQuery({
-    queryKey: ["platforms"],
-    queryFn: apiClient.getAll,
+// logic to lookup a platform by id
+const usePlatform = (id?: number) => {
+    const { data: platforms } = usePlatforms();
+    return platforms?.results.find(
+        (p) => p.id === id
+      );
     
-});
 
-export default usePlatform;
+}
+
+export default usePlatform;   
